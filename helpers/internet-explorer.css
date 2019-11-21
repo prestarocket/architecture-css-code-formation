@@ -1,0 +1,29 @@
+/**
+ * Les commentaires conditionnels ne marchent que sur IE, mais de la version 5 à
+ * la 9 (incluse) seulement.
+ * @see [Conditional comments](https://www.quirksmode.org/css/condcom.html)
+ *
+ * - La fonctionnalité CSS `-ms-high-contrast` est une extension Microsoft qui
+ *   indique si l‘application est affichée en mode de contraste élevé, et avec
+ *   quelle variation de couleur.
+ * - La valeur `none` n’est plus prise en charge par Microsoft Edge.
+ *
+ * @see
+ * [-ms-high-contrast](https://developer.mozilla.org/fr/docs/Web/CSS/-ms-high-contrast)
+ *
+*/
+
+@media screen and (-ms-high-contrast: none) {
+}
+
+/*
+ * Détails du ticket, à utiliser au-dessus de la règle de hack que tu
+ * injecteras :
+ */
+
+/**
+ * Avoid unwanted horizontal scrollbar on Edge and IE11 @see [Parent container
+ * size calculated incorrectly if child element uses position: absolute in
+ * combination with transform:
+ * translate](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/107210/)
+ */
