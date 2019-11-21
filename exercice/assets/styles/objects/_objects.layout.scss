@@ -31,4 +31,18 @@
   .o-layout--wrap .o-layout__item--half:nth-child(-n + 2) {
     margin-bottom: rem(48); // 48px
   }
+
+  // Specific layout on medium breakpoint
+  // Until 992px (lower or equal to 991px)
+  @media screen and (max-width: 61.9375rem) {
+    .o-layout--wrap\@m {
+      flex-wrap: wrap;
+    }
+    .o-layout__item--half\@m {
+      width: calc(100% / 2 - (1.875rem * 1 / 2)); // 1.875rem = 30px
+    }
+    .o-layout--wrap\@m .o-layout__item--half\@m:nth-child(-n + 2) {
+      margin-bottom: rem(48); // 48px
+    }
+  }
 }
