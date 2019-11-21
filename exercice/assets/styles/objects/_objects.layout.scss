@@ -13,4 +13,22 @@
     justify-content: space-between;
     width: 100%;
   }
+
+  .o-layout--wrap {
+    flex-wrap: wrap;
+  }
+
+  .o-layout__item--third {
+    width: calc(100% / 3 - (1.875rem * 2 / 3)); // 1.875rem = 30px
+  }
+
+  .o-layout__item--half {
+    width: calc(100% / 2 - (1.875rem * 1 / 2)); // 1.875rem = 30px
+  }
+
+  // Add margin-bottom on `o-layout__item--half` except for the last two
+  // @see [Mastering the :nth-child](http://nthmaster.com/)
+  .o-layout--wrap .o-layout__item--half:nth-child(-n + 2) {
+    margin-bottom: rem(48); // 48px
+  }
 }
