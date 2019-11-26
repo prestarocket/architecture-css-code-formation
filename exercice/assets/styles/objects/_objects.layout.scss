@@ -8,33 +8,48 @@
   * @note We assume that the default font-size is 16px
   */
 
-  .o-layout {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  // Until 720px (lower than or equal to 719px)
+  @media screen and (max-width: 44.93755rem) {
+    .o-layout__item {
+      display: block;
+      // Elements have margin-bottom, with the exception of the last one
+      &:not(:last-child) {
+        margin-bottom: rem(24); // 24px
+      }
+    }
   }
 
-  .o-layout--wrap {
-    flex-wrap: wrap;
-  }
+  // From 720px (greater than or equal to 720px)
+  @media screen and (min-width: 45rem) {
+    .o-layout {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
 
-  .o-layout__item--third {
-    width: calc(100% / 3 - (1.875rem * 2 / 3)); // 1.875rem = 30px
-  }
+    .o-layout--wrap {
+      flex-wrap: wrap;
+    }
 
-  .o-layout__item--half {
-    width: calc(100% / 2 - (1.875rem * 1 / 2)); // 1.875rem = 30px
-  }
+    .o-layout__item--third {
+      width: calc(100% / 3 - (1.875rem * 2 / 3)); // 1.875rem = 30px
+    }
 
-  // Add margin-bottom on `o-layout__item--half` except for the last two
-  // @see [Mastering the :nth-child](http://nthmaster.com/)
-  .o-layout--wrap .o-layout__item--half:nth-child(-n + 2) {
-    margin-bottom: rem(48); // 48px
+    .o-layout__item--half {
+      width: calc(100% / 2 - (1.875rem * 1 / 2)); // 1.875rem = 30px
+    }
+
+    // Add margin-bottom on `o-layout__item--half` except for the last two
+    // @see [Mastering the :nth-child](http://nthmaster.com/)
+    .o-layout--wrap .o-layout__item--half:nth-child(-n + 2) {
+      margin-bottom: rem(48); // 48px
+    }
   }
 
   // Specific layout on medium breakpoint
-  // Until 992px (lower or equal to 991px)
-  @media screen and (max-width: 61.9375rem) {
+  // From 720px (greater than or equal to 720px)
+  // Until 992px (lower than or equal to 991px)
+  @media screen and (min-width: 45rem) and (max-width: 61.9375rem) {
     .o-layout--wrap\@m {
       flex-wrap: wrap;
     }
